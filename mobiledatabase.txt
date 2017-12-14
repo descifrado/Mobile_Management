@@ -1,0 +1,82 @@
+drop database if exists projectas;
+create database projectas;
+use projectas;
+create table model
+(
+model_id varchar(5) primary key,
+brand varchar(25),
+model_name varchar(20),
+price int(5),
+popularity varchar(10),
+stockno int(4),
+mlog char(1)
+);
+create table configuration
+(
+model_id varchar(20),
+foreign key(model_id) references model(model_id) on update cascade on delete restrict,
+processor varchar(15),
+ram int(1),
+os varchar(30),
+sim varchar(15),
+network varchar(15),
+int_storage int(3),
+exp_storage int(3),
+rear_camera int(2),
+front_camera int(2),
+screen varchar(10),
+screen_size float,
+battery int(4)
+);
+create table customer
+(
+cust_id varchar(5) primary key,
+first_name varchar(20),
+last_name varchar(20),
+gender varchar(10),
+contact_no bigint(10),
+adr_line1 varchar(25),
+adr_line2 varchar(25),
+adr_line3 varchar(25),
+email_id varchar(50),
+password varchar(15),
+log char(1)
+);
+
+create table orders
+(
+order_no varchar(15) primary key,
+cust_id varchar(15),
+foreign key(cust_id) references customer(cust_id) on update cascade on delete restrict,
+model_id varchar(5),
+product_name varchar(50),
+rate int(5),
+quantity int(3),
+amount float,
+olog char(1)
+);
+insert into model values('M101','Xiaomi','MI 5',24999,'Excellent',20,'N');
+insert into model values('M102','Samsung','Galaxy S7',54999,'Excellent',40,'N');
+insert into model values('M103','Microsoft','Lumia 930',35999,'Average',15,'N');
+insert into model values('M104','Sony','Xperia X',38999,'Good',25,'N');
+insert into model values('M105','Le','1s eco',10999,'Excellent',40,'N');
+
+insert into configuration values('M101','Snapdragon 820',3,'Android 5.1 Lollipop','Dual','LTE',32,64,16,5,'Full HD',5.1,3000);
+insert into configuration values('M102','Exynos 8890',4,'Android 6 Marshmallow','Dual','LTE',64,0,12,5,'Quad HD',5.5,3300);
+insert into configuration values('M103','Snapdragon 808',3,'Windows 10','Single','LTE',32,64,21,5,'Full HD',5.5,3500);
+insert into configuration values('M104','Snapdragon 650',3,'Android 6 Marshmallow','Dual','LTE',32,64,16,8,'Full HD',5.5,2900);
+insert into configuration values('M105','Snapdragon 801',3,'Android 5.1 LOllipop','DUal','3g+LTE',32,64,13,8,'Full HD',5.5,3300);
+
+
+insert into customer values('C101','Rahul','Sharma','M',9856425458,'C-32','Shastri Nagar','Ghaziabad','sharma_rahul21@gmail.com','rahul753','N');
+insert into customer values('C102','Anuj','Gupta','M',9956425428,'G-342','Sanjay Nagar','Ghaziabad','gupta_anuj41@gmail.com','anuj753','N');
+insert into customer values('C103','Akansha','Tyagi','F',8855425458,'R-32/5','Raj Nagar','Ghaziabad','tyagi_akan51@gmail.com','akan753','N');
+insert into customer values('C104','Rohini','Sharma','F',7857825458,'42/4','Nehru nagar','Ghaziabad','sharma_rohini21@gmail.com','rohini753','N');
+insert into customer values('C105','Shreyansh','Chaudhary','M',8882461544,'P-175','Sanjay Nagar','Ghaziabad','jaat_shrey21@gmail.com','shreyl753','N');
+
+
+insert into orders values('D101','C103','M102','Samsung Galaxy S7',54999,1,49499.10,'N');
+insert into orders values('D102','C105','M101','Xiaomi MI 5',24999,2,42498.30,'N');
+insert into orders values('D103','C101','M103','Microsoft Lumia 930',35999,1,34199.05,'N');
+insert into orders values('D104','C102','M104','Sony Xperia X',38999,1,35099.10,'N');
+insert into orders values('D105','C104','M105','Le 1s eco',10999,2,21998,'N');
