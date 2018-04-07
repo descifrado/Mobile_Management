@@ -118,6 +118,8 @@ public class Adminpage extends javax.swing.JFrame {
         jLabel1.setText("TECH WORLD");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(210, 10, 330, 55);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background2.jpg"))); // NOI18N
         jPanel1.add(jLabel3);
         jLabel3.setBounds(0, 0, 740, 460);
 

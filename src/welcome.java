@@ -42,9 +42,9 @@ public class welcome extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 204, 51));
         jLabel1.setText("WELCOME TO THE");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(30, 10, 620, 50);
+        jLabel1.setBounds(30, 20, 620, 50);
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(51, 0, 51));
         jButton3.setText("ADMIN SIGN IN");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -55,7 +55,7 @@ public class welcome extends javax.swing.JFrame {
         jPanel1.add(jButton3);
         jButton3.setBounds(350, 330, 160, 50);
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(51, 0, 51));
         jButton2.setText("SIGN UP");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +66,7 @@ public class welcome extends javax.swing.JFrame {
         jPanel1.add(jButton2);
         jButton2.setBounds(180, 330, 100, 50);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 0, 51));
         jButton1.setText("SIGN IN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +77,7 @@ public class welcome extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(20, 330, 100, 50);
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(51, 0, 51));
         jButton4.setText("EXIT");
         jButton4.addActionListener(new java.awt.event.ActionListener() {

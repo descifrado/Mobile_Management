@@ -27,6 +27,7 @@ public class sign_in extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -35,20 +36,35 @@ public class sign_in extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         UI = new javax.swing.JTextField();
         P = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Monotype Corsiva", 3, 24));
-        jLabel1.setText("TECH WORLD");
+        jPanel1.setLayout(null);
 
-        jLabel3.setFont(new java.awt.Font("Monotype Corsiva", 3, 18));
+        jLabel1.setFont(new java.awt.Font("Monotype Corsiva", 3, 50)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("TECH WORLD");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(200, 20, 340, 60);
+
+        jLabel3.setFont(new java.awt.Font("Monotype Corsiva", 3, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ENTER ID AND PASSWORD");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(210, 110, 310, 20);
 
         jLabel4.setFont(new java.awt.Font("Monotype Corsiva", 3, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("USER_ID");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(210, 180, 90, 21);
 
         jLabel5.setFont(new java.awt.Font("Monotype Corsiva", 3, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("PASSWORD");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(210, 250, 110, 21);
 
         jButton1.setFont(new java.awt.Font("Monotype Corsiva", 3, 18)); // NOI18N
         jButton1.setText("LOG IN");
@@ -57,6 +73,8 @@ public class sign_in extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(210, 350, 95, 29);
 
         jButton2.setFont(new java.awt.Font("Monotype Corsiva", 3, 18)); // NOI18N
         jButton2.setText("HOME");
@@ -65,59 +83,28 @@ public class sign_in extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(420, 350, 85, 29);
+        jPanel1.add(UI);
+        UI.setBounds(370, 170, 140, 30);
+        jPanel1.add(P);
+        P.setBounds(370, 240, 140, 30);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background2.jpg"))); // NOI18N
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 740, 460);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(261, 261, 261)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(307, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(201, 201, 201)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(P, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                        .addComponent(UI))
-                    .addComponent(jButton2))
-                .addGap(169, 169, 169))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(219, 219, 219)
-                .addComponent(jLabel3)
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel3)
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(127, 127, 127)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton1)
-                                    .addComponent(jButton2)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(P, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(UI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(141, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -125,32 +112,31 @@ public class sign_in extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 try
-{   
- String ui=UI.getText();
+{
+    String ui=UI.getText();
     String p=P.getText();
-String s="";
+    String s="";
     Class.forName("java.sql.Driver");
-Connection con=DriverManager.getConnection("jdbc:mysql://localhost/projectas","root","modi");
-Statement stmt=con.createStatement();
-String q1="select password from customer where cust_id='"+(ui)+"';";
-String q2="update customer set log='y' where cust_id='"+(ui)+"';";
-ResultSet rs=stmt.executeQuery(q1);
-while(rs.next())
-{
-  s=rs.getString("password");
-}
-if(s.equals(p))
-{
-    JOptionPane.showMessageDialog(this, "WELCOME TO TECH WORLD");
-    new customer_page().show();
-    this.dispose();
-}
-else
-{
-    JOptionPane.showMessageDialog(this,"PASSWORD DIDN'T MATCH");
-
-}
-stmt.executeUpdate(q2);
+    Connection con=DriverManager.getConnection("jdbc:mysql://localhost/projectas","root","modi");
+    Statement stmt=con.createStatement();
+    String q1="select password from customer where cust_id='"+(ui)+"';";
+    String q2="update customer set log='y' where cust_id='"+(ui)+"';";
+    ResultSet rs=stmt.executeQuery(q1);
+    while(rs.next())
+    {
+        s=rs.getString("password");
+    }
+    if(s.equals(p))
+    {
+        JOptionPane.showMessageDialog(this, "WELCOME TO TECH WORLD");
+        new customer_page().show();
+        this.dispose();
+    }
+    else
+    {
+        JOptionPane.showMessageDialog(this,"PASSWORD DIDN'T MATCH");
+    }
+    stmt.executeUpdate(q2);
 }
 catch(Exception e)
 {
@@ -212,8 +198,10 @@ catch(Exception e)
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

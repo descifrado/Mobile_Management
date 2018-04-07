@@ -146,8 +146,8 @@ public class adminform extends javax.swing.JFrame {
         if((i.equals("techworld"))&&(p.equals("mobile1234")))
         {
             JOptionPane.showMessageDialog(this,"Welcome");
-             new Adminpage().show();
-             this.dispose();
+            new Adminpage().show();
+            this.dispose();
         }
         else
         {

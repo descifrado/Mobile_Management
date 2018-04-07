@@ -8,6 +8,7 @@
  * @author Administrator
  */
 import java.sql.*;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 public class signup extends javax.swing.JFrame {
 
@@ -102,12 +103,23 @@ public class signup extends javax.swing.JFrame {
         F.setFont(new java.awt.Font("Trebuchet MS", 3, 14)); // NOI18N
         F.setText("FEMALE");
 
+        CN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CNActionPerformed(evt);
+            }
+        });
         CN.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 CNKeyPressed(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 CNKeyTyped(evt);
+            }
+        });
+
+        PASS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PASSActionPerformed(evt);
             }
         });
 
@@ -158,7 +170,7 @@ public class signup extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addComponent(jLabel12)
                             .addComponent(jButton1))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
@@ -254,17 +266,16 @@ public class signup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap())
+                    .addComponent(jButton3)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    
-        new welcome().show();
+      new welcome().show();
       this.dispose();
+    
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -272,60 +283,88 @@ public class signup extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      try
-     {
-          Class.forName("java.sql.Driver");
-          Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/projectas","root","modi");
-          Statement stmt=(Statement)con.createStatement();
-          String fn=FN.getText();String ln=LN.getText();String cn=CN.getText();
-          String a1=A1.getText();String a2=A2.getText();String a3=A3.getText();
-          String ei=EI.getText();String pass=PASS.getText();String rp=RP.getText();
-          int ran=5+(int)Math.round(Math.random()*10);
-          String log="n";
-          String k=Integer.toString(ran);
-          String cust_id="C20"+k;
-          String gender="";
-          if(M.isSelected()==true)
-              gender="male";
-          if(F.isSelected()==true)
-              gender="female";
-      if(!((fn.isEmpty())&&(cn.isEmpty())&&(pass.isEmpty())))
-      {
-          if(pass.equals(rp))
-          {
-         String q1="insert into customer values('"+(cust_id)+"','"+(fn)+"','"+(ln)+"','"+(gender)+"','"+(cn)+"','"+(a1)+"','"+(a2)+"','"+(a3)+"','"+(ei)+"','"+(pass)+"','"+(log)+"');";
-          stmt.executeUpdate(q1);
-          JOptionPane.showMessageDialog(this,"YOU HAVE SUCCESSFULLY SIGNED UP AND YOUR CUSTOMER ID IS"+cust_id);
-                 String q2="update customer set log='y' where cust_id='"+(cust_id)+"';"; 
-                 stmt.executeUpdate(q2);
-          new customer_page().show();
-                   
-          this.dispose();
-          }
-         else      {
-              JOptionPane.showMessageDialog(this,"Password Didn't Match");
-              }
-      }
-      else
-      {
-          JOptionPane.showMessageDialog(this,"PLEASE GIVE MANDATORY INFORMATION");
-      }
+    try
+    {
+        Class.forName("java.sql.Driver");
+        Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/projectas","root","modi");
+        Statement stmt=(Statement)con.createStatement();
+        String fn=FN.getText();String ln=LN.getText();String cn=CN.getText();
+        String a1=A1.getText();String a2=A2.getText();String a3=A3.getText();
+        String ei=EI.getText();String pass=PASS.getText();String rp=RP.getText();
+        int ran=5+(int)Math.round(Math.random()*10);
+        String log="N";
+        String k=Integer.toString(ran);
+        String cust_id="C20"+k;
+        String gender="";
+        if(M.isSelected()==true)
+            gender="M";
+        if(F.isSelected()==true)
+            gender="F";
+        if(!((fn.isEmpty())&&(cn.isEmpty())&&(pass.isEmpty())))
+        {
+            if(pass.equals(rp))
+            {
+                if(isValid(ei))
+                {
+                    String q1="insert into customer values('"+(cust_id)+"','"+(fn)+"','"+(ln)+"','"+(gender)+"','"+(cn)+"','"+(a1)+"','"+(a2)+"','"+(a3)+"','"+(ei)+"','"+(pass)+"','"+(log)+"');";
+                    stmt.executeUpdate(q1);
+                    JOptionPane.showMessageDialog(this,"YOU HAVE SUCCESSFULLY SIGNED UP AND YOUR CUSTOMER ID IS "+cust_id+"\n Please Do Remember It");
+                    String q2="update customer set log='Y' where cust_id='"+(cust_id)+"';"; 
+                    stmt.executeUpdate(q2);
+                    new customer_page().show();
+                    this.dispose();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this,"Please Enter a Valid Email Id");
+                }
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(this,"Password Didn't Match");
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this,"PLEASE GIVE MANDATORY INFORMATION");
+        }
      }
      catch(Exception e)
      {
-        JOptionPane.showMessageDialog(this, e.getMessage());
+         JOptionPane.showMessageDialog(this, e.getMessage());
      }
       
     
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    public boolean isValid(String email)
+    {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                            "[a-zA-Z0-9_+&*-]+)*@" +
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                            "A-Z]{2,7}$";
+                             
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
+    }
     private void CNKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CNKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_CNKeyPressed
 
     private void CNKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CNKeyTyped
-        // TODO add your handling code here:
+        char ch=evt.getKeyChar();
+        if(!(ch>='0' && ch<='9'))
+            evt.consume();
     }//GEN-LAST:event_CNKeyTyped
+
+    private void CNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNActionPerformed
+       
+    }//GEN-LAST:event_CNActionPerformed
+
+    private void PASSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PASSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PASSActionPerformed
 
     /**
      * @param args the command line arguments
