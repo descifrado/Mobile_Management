@@ -1,4 +1,4 @@
-# Mobile_Management
+# Mobile Management
 A Simple Software To Help Out Mobile Retailers
 Mobile Retailers May Install These On Several System And Allow Users To Go Through The Application.
 There Customers Will be Able To Search From The Available Models For Their Best Match and Submit A Request As well As Get A Statement For their Booking
